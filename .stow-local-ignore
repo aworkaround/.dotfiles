@@ -1,0 +1,6 @@
+.git
+.gitignore
+.stow-local-ignore
+playbooks
+README.md
+.vscode
