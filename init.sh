@@ -17,9 +17,9 @@ ansible-galaxy role install gantsign.oh-my-zsh
 ansible-playbook .playbooks/configure-ubuntu-wsl.yaml
 ansible-playbook .playbooks/install-oh-my-zsh.yaml
 
-mv .zshrc .zshrc.bak -f 2> /dev/null
-mv .bashrc .bashrc.bak -f 2> /dev/null
-mv .tmux.conf .tmux.conf.bak -f 2> /dev/null
+mv ~/.zshrc ~/.zshrc.bak -f 2> /dev/null
+mv ~/.bashrc ~/.bashrc.bak -f 2> /dev/null
+mv ~/.tmux.conf ~/.tmux.conf.bak -f 2> /dev/null
 stow . --dotfiles --adopt
 
 cat > ~/.gitconfig << EOF
