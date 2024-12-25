@@ -14,7 +14,7 @@ apt-get install -y ansible git
 
 ansible-galaxy role install gantsign.oh-my-zsh
 
-ansible-playbook .playbooks/configure-ubuntu.yaml
+ansible-playbook .playbooks/configure-ubuntu-wsl.yaml
 ansible-playbook .playbooks/install-oh-my-zsh.yaml
 
 cat > ~/.gitconfig << EOF
