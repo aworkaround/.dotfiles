@@ -29,10 +29,10 @@ alias delete-cluster='kind delete cluster --name kind-main'
 alias reset-cluster='delete-cluster && create-cluster'
 
 ## KUBERNETES
-export ks='kubectl get pods'
-export ka='kubectl get pods -A'
-export ks='kubectl get pods -o wide'
-export kla='kubectl get pods -o wide -A'
-export kal='kubectl get pods -o wide -A'
+alias ks='kubectl get pods'
+alias ka='kubectl get pods -A'
+alias ks='kubectl get pods -o wide'
+alias kla='kubectl get pods -o wide -A'
+alias kal='kubectl get pods -o wide -A'
 
 clear
