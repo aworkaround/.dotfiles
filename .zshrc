@@ -29,9 +29,10 @@ alias delete-cluster='kind delete cluster --name kind-main'
 alias reset-cluster='delete-cluster && create-cluster'
 
 ## KUBERNETES
-export DRC="--dry-run=client --output=yaml"
-export DRS="--dry-run=server --output=yaml"
-alias kgp='kubectl get pods -o wide'
-alias kgn='kubectl get nodes -o wide'
+export ks='kubectl get pods'
+export ka='kubectl get pods -A'
+export ks='kubectl get pods -o wide'
+export kla='kubectl get pods -o wide -A'
+export kal='kubectl get pods -o wide -A'
 
 clear
