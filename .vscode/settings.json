@@ -5,12 +5,15 @@
         "commited",
         "containerd",
         "devel",
+        "Dobbeleer",
         "doctl",
         "gdbm",
         "gpgcheck",
         "gpgkey",
+        "honukai",
         "inotify",
         "istioctl",
+        "junegunn",
         "keypair",
         "kubectx",
         "libiodbc",
@@ -18,6 +21,8 @@
         "libuuid",
         "luarocks",
         "mongocli",
+        "msix",
+        "msixbundle",
         "NOPASSWD",
         "nvim",
         "obsproject",
@@ -33,6 +38,7 @@
         "unar",
         "usermod",
         "videolan",
-        "virtualenv"
+        "virtualenv",
+        "Winget"
     ]
 }
