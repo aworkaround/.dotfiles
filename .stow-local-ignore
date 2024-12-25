@@ -1,6 +1,8 @@
 .git
 .gitignore
 .stow-local-ignore
-playbooks
+.playbooks
 README.md
 .vscode
+Dockerfile
+init.sh

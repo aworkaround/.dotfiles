@@ -1,10 +1,21 @@
 # INTRODUCTION
 
-This is dotfiles repo which contains custom configs related to my Fedora OS installed on my Desktop. This can be reused using GNU Stow tool to quickly create dotfiles.
+This is dotfiles repo which contains custom configs related to my **UBUNTU WSL** installed on my Windows Desktop. This can be reused using GNU Stow tool to quickly create dotfiles.
 
-## Prerequisites
+# Getting Started
 
-1. Run `dnf udpate && dnf upgrade -y && dnf install git ansible stow -y`
+> Caution: Not recommended to be used on existing configured devices.
+
+You just need launch your freshly built Ubuntu WSL (tested on 20.04 or higher)
+
+```bash
+git clone https://github.com/aworkaround/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+chmod +x init.sh
+sudo ./init.sh
+```
+
+# Good to Know Things!
 
 ## How to Backup (Add to GIT and Stow)
 
@@ -15,20 +26,25 @@ This is dotfiles repo which contains custom configs related to my Fedora OS inst
 5. Git Commit `git commit -m 'Added .zshrc dotfile'`
 6. Git Push `git push origin main`
 
-
 ## How to Restore
 
 1. Git Clone `git clone git@github.com:aworkaround/dotfiles.git -b main ~/dotfiles`
 2. CD to Dotfiles `cd ~/dotfiles`
 3. CAUTION: This command will replace your existing dotfiles in $HOME. Stow add `stow . --dotfiles --adopt`. Use it without `--adopt` if you're not sure.
 
-
-## How to Install Apps
-
-1. Run `ansible-playbook ~/.bootstrap/setup.yaml --ask-become-pass` to install everything required.
-
 ## Considerations
 
 - If you want to ignore any dotfile to be commited in Git, add it to `.gitignore` file.
 - If you want to ignore any dotfile to become symlink by Stow, add it to `.stow-local-ignore` file.
 - Don't store any secrets, keys, tokens, and SSH RSA keys to this repo for security.
+
+## Testing
+
+- You can create your own Docker image using command `docker build -t ubuntu-custom ~/dotfiles`
+- Then you can run container `docker run -d --name ubuntu1 ubuntu-custom`
+- Login to container using exec `docker exec -u root -it abcd /bin/bash`
+- Set password for user **ubuntu** using `passwd ubuntu`
+- Exit `exit`
+- Login using ubuntu user `docker exec -u ubuntu -it abcd /bin/bash`
+- Clone dotfiles `git clone https://github.com/aworkaround/dotfiles.git ~/dotfiles`
+- Test it by running command `chmod +x init.sh && sudo ./init.sh`
