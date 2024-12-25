@@ -100,26 +100,6 @@
       name: terraform
       state: latest
 
-  - name: Check is Dotfiles directory Exists
-    ignore_errors: true
-    register: dotfiles_exists
-    ansible.builtin.shell:
-      cmd: "ls {{ home_dir }}/dotfiles"
-
-  - name: Download Dotfiles
-    when: dotfiles_exists.rc != 0
-    become_user: "{{ remote_regular_user }}"
-    ansible.builtin.git:
-      repo: https://github.com/aworkaround/dotfiles.git
-      single_branch: true
-      depth: 1
-      dest: "{{ home_dir }}/dotfiles"
-
-  - name: Create links to dotfiles
-    become_user: "{{ remote_regular_user }}"
-    ansible.builtin.shell:
-      cmd: cd {{ home_dir }}/dotfiles && stow . --dotfiles --adopt
-
   - name: Backup Existing LazyVIM config if any
     become_user: "{{ remote_regular_user }}"
     failed_when: true
@@ -133,7 +113,6 @@
     become_user: "{{ remote_regular_user }}"
     ansible.builtin.git:
       repo: https://github.com/LazyVim/starter.git
-      single_branch: true
       depth: 1
       dest: "{{ home_dir }}/.config/nvim"
 
