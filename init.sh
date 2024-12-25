@@ -34,7 +34,7 @@ EOF
 
 ## Cleaning clutter
 rm ~/.config/nvim/.git -rf
-rm .git -rf && git init
+rm .git -rf
 
 echo "Please consider giving me a star at https://github.com/aworkaround/dotfiles.git !!"
 echo "You can create your own dotfiles repo and push ~/dotfiles directory there for further customizations!"
