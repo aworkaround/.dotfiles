@@ -27,7 +27,8 @@ $DeveloperTools = @(
     'junegunn.fzf',
     'Microsoft.PowerShell',
     'Microsoft.AzureCLI',
-    'Canonical.Ubuntu.2404'
+    'Canonical.Ubuntu.2404',
+    'Microsoft.PowerToys'
 )
 
 $CoreApps = @(
