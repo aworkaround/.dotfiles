@@ -1,6 +1,6 @@
-# Getting Started [Launch PowerShell as Administrator]
+# Getting Started
 
-1. Install Core Apps
+1. Install Core Apps [Launch PowerShell **CORE** as Administrator]
 
 ```powershell
 iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WingetApps.ps1' -OutFile "$HOME/Install-WingetApps.ps1"
@@ -8,10 +8,10 @@ iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install
 
 ```
 
-2. Install WSL
+1. Install WSL [Launch **Windows PowerShell** as Administrator]
 
 ```powershell
 iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WSL.ps1' -OutFile "$HOME/Install-WSL.ps1"
-& "$HOME\Install-WSL.ps1" -LinuxDistroWingetId 'Canonical.Ubuntu.2404'
+& "$HOME\Install-WSL.ps1"
 
 ```
