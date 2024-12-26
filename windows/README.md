@@ -1,14 +1,6 @@
 # Getting Started [Launch PowerShell as Administrator]
 
-1. Install Windows Updates
-
-```powershell
-iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WindowsUpdates.ps1' -OutFile "$HOME/Install-WindowsUpdates.ps1"
-& "$HOME\Install-WindowsUpdates.ps1"
-
-```
-
-2. Install Core Apps
+1. Install Core Apps
 
 ```powershell
 iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WingetApps.ps1' -OutFile "$HOME/Install-WingetApps.ps1"
@@ -16,7 +8,7 @@ iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install
 
 ```
 
-3. Install WSL
+2. Install WSL
 
 ```powershell
 iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WSL.ps1' -OutFile "$HOME/Install-WSL.ps1"
