@@ -43,7 +43,8 @@ $InstallPackages = @(
     'Pulumi.Pulumi',
     'Helm.Helm',
     'Kubernetes.kubectl',
-    'Canonical.Ubuntu.2404'
+    'Canonical.Ubuntu.2404',
+    'DEVCOM.JetBrainsMonoNerdFont'
 )
 
 $RestartRequired = $false
