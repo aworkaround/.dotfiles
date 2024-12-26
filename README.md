@@ -6,12 +6,16 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 
 ## Install DevOps Apps In Windows 10/11
 
+> ℹ️ You can find more packages at `https://winget.run` and can copy the command to install them 🙌
+
 ```powershell
 Invoke-WebRequest -Uri 'https://kamal.today/win-packages' -OutFile "$HOME/InstallWindowsPrograms.ps1"
 powershell.exe -ExecutionPolicy Bypass -File "$HOME/InstallWindowsPrograms.ps1"
 ```
 
-> Caution: Not recommended to be used on existing configured devices.
+## Install and configure Ubuntu WSL
+
+> ❗Caution: Not recommended to be used on existing configured devices.
 
 You just need launch your freshly built Ubuntu WSL (tested on 20.04 or higher)
 
