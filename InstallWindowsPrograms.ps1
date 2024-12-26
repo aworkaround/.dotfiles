@@ -4,21 +4,21 @@ if (![bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -
 
 Write-Warning 'Please note: If you choose to restart the computer when prompted, remember to rerun the script once the system comes back online!'
 
-# Install Windows Updates
-Install-Module -Name PSWindowsUpdate -Scope AllUsers -AllowClobber -Force -Confirm:$False
-Import-Module -Name PSWindowsUpdate -IgnoreReboot
-Install-WindowsUpdate -AcceptAll
+## Install Windows Updates
+# Install-Module -Name PSWindowsUpdate -Scope AllUsers -AllowClobber -Force -Confirm:$False
+# Import-Module -Name PSWindowsUpdate -IgnoreRebootRequired
+# Install-WindowsUpdate -AcceptAll
 
 ## Install Winget
-$URL = "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
-$URL = (Invoke-WebRequest -Uri $URL).Content | ConvertFrom-Json |
-Select-Object -ExpandProperty "assets" |
-Where-Object "browser_download_url" -Match '.msixbundle' |
-Select-Object -ExpandProperty "browser_download_url"
+# $URL = "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
+# $URL = (Invoke-WebRequest -Uri $URL).Content | ConvertFrom-Json |
+# Select-Object -ExpandProperty "assets" |
+# Where-Object "browser_download_url" -Match '.msixbundle' |
+# Select-Object -ExpandProperty "browser_download_url"
 
-Invoke-WebRequest -Uri $URL -OutFile "Setup.msix" -UseBasicParsing
-Add-AppxPackage -Path "Setup.msix"
-Remove-Item "Setup.msix"
+# Invoke-WebRequest -Uri $URL -OutFile "Setup.msix" -UseBasicParsing
+# Add-AppxPackage -Path "Setup.msix"
+# Remove-Item "Setup.msix"
 
 $InstallPackages = @(
     'Docker.DockerDesktop',

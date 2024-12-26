@@ -4,12 +4,20 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 
 # Getting Started
 
+## Install DevOps Apps In Windows 10/11
+
+```powershell
+Invoke-WebRequest -Uri 'https://kamal.today/win-packages' -OutFile '~/InstallWindowsPrograms.ps1'
+powershell.exe -ExecutionPolicy Bypass -File '~/InstallWindowsPrograms.ps1'
+```
+
 > Caution: Not recommended to be used on existing configured devices.
 
 You just need launch your freshly built Ubuntu WSL (tested on 20.04 or higher)
 
 ```bash
-git clone https://github.com/aworkaround/dotfiles.git ~/dotfiles
+sudo apt update && sudo apt upgrade -y && sudo apt install git -y
+git clone  ~/dotfiles
 cd ~/dotfiles
 chmod +x init.sh
 sudo ./init.sh
