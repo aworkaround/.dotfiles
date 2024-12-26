@@ -71,7 +71,6 @@ if ($RestartRequired) {
 
 $i = 0
 foreach ($App in $InstallPackages) {
-    Clear-Host
     $p = ($i / $InstallPackages.Count) * 100
     $DoesNotExist = (winget.exe list --id $App --accept-source-agreements)[-1].Contains('No installed package found')
     if ($DoesNotExist) {
