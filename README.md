@@ -11,6 +11,7 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 ```powershell
 Invoke-WebRequest -Uri 'https://kamal.today/win-packages' -OutFile "$HOME/InstallWindowsPrograms.ps1"
 Powershell.exe -ExecutionPolicy Bypass -File "$HOME/InstallWindowsPrograms.ps1"
+
 ```
 
 ## Install and configure Ubuntu WSL
@@ -23,6 +24,7 @@ git clone  ~/dotfiles
 cd ~/dotfiles
 chmod +x init.sh
 sudo ./init.sh
+
 ```
 
 # 🌍 Good to Know Things!
