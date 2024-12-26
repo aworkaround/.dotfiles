@@ -68,21 +68,20 @@ if ($RestartRequired) {
     Restart-Computer -Confirm
 }
 
-
-$i = 0; $s = 0
+$i = 0
 foreach ($App in $InstallPackages) {
+    $p = ($i / $InstallPackages.Count) * 100
     $DoesNotExist = (winget.exe list --id $App --accept-source-agreements)[-1].Contains('No installed package found')
     if ($DoesNotExist) {
-        Write-Host "Installing package $App ..."
-        winget.exe install --id $App --silent --force
-        $i += 1
+        Write-Progress -Activity "Installing packages: " -Status "$App" -PercentComplete $p
+        winget.exe install --id $App --silent --force --disable-interactivity --accept-source-agreements --accept-package-agreements --exact
     }
     else {
         Write-Host "App $App exists, skipping!"
-        $s += 1
     }
+    $i += 1
 }
 
-Write-Output "(@(& '$env:LOCALAPPDATA\Programs\oh-my-posh\bin\oh-my-posh.exe' init powershell --config='$env:LOCALAPPDATA\Programs\oh-my-posh\themes\honukai.omp.json' --print) -join '`n') | Invoke-Expression" | Out-File -Path $PROFILE -Append -Encoding utf8
+Write-Output "(@(& '$env:LOCALAPPDATA\Programs\oh-my-posh\bin\oh-my-posh.exe' init powershell --config='$env:LOCALAPPDATA\Programs\oh-my-posh\themes\honukai.omp.json' --print) -join '`n') | Invoke-Expression" >> $PROFILE
 
-Write-Host "$i/$($InstallPackages.count) Packages and $($InstallFeatures.count) were installed successfully 🙌! $s packages are already installed. Please launch a fresh PowerShell terminal 😊" -ForegroundColor Green
+Write-Host "Packages installed successfully. Please launch a fresh PowerShell terminal 😊" -ForegroundColor Green
