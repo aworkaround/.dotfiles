@@ -20,7 +20,7 @@ Powershell.exe -ExecutionPolicy Bypass -File "$HOME/InstallWindowsPrograms.ps1"
 
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo apt install git -y
-git clone  ~/dotfiles
+git clone https://github.com/aworkaround/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 chmod +x init.sh
 sudo ./init.sh
