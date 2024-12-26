@@ -2,9 +2,8 @@ if (![bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -
     Write-Error 'Please run the script as Admin!'
 }
 
-Write-Warning 'Please note: If you choose to restart the computer when prompted, remember to rerun the script once the system comes back online!'
-
 ## Install Windows Updates
+# Write-Warning 'If you choose to restart the computer when prompted, remember to rerun the script once the system comes back online!'
 # Install-Module -Name PSWindowsUpdate -Scope AllUsers -AllowClobber -Force -Confirm:$False
 # Import-Module -Name PSWindowsUpdate -IgnoreRebootRequired
 # Install-WindowsUpdate -AcceptAll
@@ -29,7 +28,7 @@ $InstallPackages = @(
     'Neovim.Neovim',
     'GoLang.Go',
     'Python.Python.3.13',
-    'XP9KHM4BK9FZ7Q', #VS Code
+    'XP9KHM4BK9FZ7Q', # VS Code
     '7zip.7zip',
     'JanDeDobbeleer.OhMyPosh',
     'junegunn.fzf',
@@ -49,27 +48,30 @@ $InstallPackages = @(
 
 $RestartRequired = $false
 if ((Get-WindowsOptionalFeature -Online -FeatureName 'VirtualMachinePlatform').State -NE 'Enabled') { 
+    Write-Information 'Installing VirtualMachinePlatform feature...'
     Enable-WindowsOptionalFeature -FeatureName 'VirtualMachinePlatform' -Online -All -NoRestart
     $RestartRequired = $True
 }
 if ((Get-WindowsOptionalFeature -Online -FeatureName 'HypervisorPlatform').State -NE 'Enabled') { 
+    Write-Information 'Installing HypervisorPlatform feature...'
     Enable-WindowsOptionalFeature -FeatureName 'HypervisorPlatform' -Online -All -NoRestart
     $RestartRequired = $True
 }
 if ((Get-WindowsOptionalFeature -Online -FeatureName 'Microsoft-Windows-Subsystem-Linux').State -NE 'Enabled') { 
+    Write-Information 'Installing Microsoft-Windows-Subsystem-Linux feature...'
     Enable-WindowsOptionalFeature -FeatureName 'Microsoft-Windows-Subsystem-Linux' -Online -All -NoRestart
     $RestartRequired = $True
 }
 
 if ($RestartRequired) {
-    Write-Warning 'Please note: If you choose to restart the computer, remember to RERUN the script once the system comes back online!'
+    Write-Warning 'If you choose to restart the computer, remember to RERUN the script once the system comes back online!'
     Restart-Computer -Confirm
 }
 
 
 $i = 0; $s = 0
 foreach ($App in $InstallPackages) {
-    $DoesNotExist = (winget.exe list --id $App)[-1].Contains('No installed package found')
+    $DoesNotExist = (winget.exe list --id $App --accept-source-agreements)[-1].Contains('No installed package found')
     if ($DoesNotExist) {
         Write-Host "Installing package $App ..."
         winget.exe install --id $App --silent --force
