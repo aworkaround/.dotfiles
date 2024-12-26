@@ -83,6 +83,7 @@ foreach ($App in $InstallPackages) {
     $i += 1
 }
 
+New-Item -Type File -Path $PROFILE -Force
 Write-Output "(@(& '$env:LOCALAPPDATA\Programs\oh-my-posh\bin\oh-my-posh.exe' init powershell --config='$env:LOCALAPPDATA\Programs\oh-my-posh\themes\honukai.omp.json' --print) -join '`n') | Invoke-Expression" >> $PROFILE
 
 Write-Host "Packages installed successfully. Please launch a fresh PowerShell terminal 😊" -ForegroundColor Green
