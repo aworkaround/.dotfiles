@@ -3,20 +3,23 @@
 1. Install Windows Updates
 
 ```powershell
-.\install-windows-updates.ps1
+iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WindowsUpdates.ps1' -OutFile "$HOME/Install-WindowsUpdates.ps1"
+& "$HOME\Install-WindowsUpdates.ps1"
 
 ```
 
 2. Install Core Apps
 
 ```powershell
-.\install-apps.ps1 -AdditionalApps 'Google.Chrome', 'qBittorrent.qBittorrent'
+iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WingetApps.ps1' -OutFile "$HOME/Install-WingetApps.ps1"
+& "$HOME\Install-WingetApps.ps1" -AdditionalApps 'Google.Chrome', 'qBittorrent.qBittorrent'
 
 ```
 
 3. Install WSL
 
 ```powershell
-.\install-wsl.ps1 -LinuxDistroWingetId 'Canonical.Ubuntu.2404'
+iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WSL.ps1' -OutFile "$HOME/Install-WSL.ps1"
+& "$HOME\Install-WSL.ps1" -LinuxDistroWingetId 'Canonical.Ubuntu.2404'
 
 ```
