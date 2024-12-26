@@ -5,8 +5,8 @@ if (![bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -
 Write-Warning 'Please note: If you choose to restart the computer when prompted, remember to rerun the script once the system comes back online!'
 
 # Install Windows Updates
-Install-Module -Name PSWindowsUpdate -Scope AllUsers -AllowClobber -Force
-Import-Module -Name PSWindowsUpdate
+Install-Module -Name PSWindowsUpdate -Scope AllUsers -AllowClobber -Force -Confirm:$False
+Import-Module -Name PSWindowsUpdate -IgnoreReboot
 Install-WindowsUpdate -AcceptAll
 
 ## Install Winget
