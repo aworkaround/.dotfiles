@@ -7,8 +7,8 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 ## Install DevOps Apps In Windows 10/11
 
 ```powershell
-Invoke-WebRequest -Uri 'https://kamal.today/win-packages' -OutFile '~/InstallWindowsPrograms.ps1'
-powershell.exe -ExecutionPolicy Bypass -File '~/InstallWindowsPrograms.ps1'
+Invoke-WebRequest -Uri 'https://kamal.today/win-packages' -OutFile "$HOME/InstallWindowsPrograms.ps1"
+powershell.exe -ExecutionPolicy Bypass -File "$HOME/InstallWindowsPrograms.ps1"
 ```
 
 > Caution: Not recommended to be used on existing configured devices.
