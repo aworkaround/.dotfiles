@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "Please enter your GitHub Email (To be used in .gitconfig file): "
+echo -ne "Please enter your GitHub Email (To be used in .gitconfig file): "
 read EMAIL
 
-echo "Please enter your GitHub Full Name (To be used in .gitconfig file): "
+echo -ne "Please enter your GitHub Full Name (To be used in .gitconfig file): "
 read FULLNAME
 
 echo -e "\033[0;33mNo more inputs required.\033[0m"
@@ -12,10 +12,9 @@ echo -e "\033[0;33mThis script can take some time to run, please be patient.\033
 apt-get update && apt-get upgrade -y
 apt-get install -y ansible git
 
-ansible-galaxy role install gantsign.oh-my-zsh
+ansible-galaxy role install gantsign.oh-my-zsh --roles-path ./ansible/roles/
 
-ansible-playbook .playbooks/configure-ubuntu-wsl.yaml
-ansible-playbook .playbooks/install-oh-my-zsh.yaml
+ansible-playbook ./ansible/playbook.yaml
 
 mv ~/.zshrc ~/.zshrc.bak -f 2> /dev/null
 mv ~/.bashrc ~/.bashrc.bak -f 2> /dev/null

@@ -2,7 +2,7 @@ location='centralindia'
 rg='Win11-VM-RG'
 name='Win11-VM'
 dnsname='win11-demo-vm01'
-adminuser='azureuser'
+adminuser='Devcrypted'
 adminpassword='^3L!SJS0^qz@UH'
 
 az group create --name $rg --location $location > /dev/null
@@ -12,7 +12,7 @@ az vm create --name $name \
     --admin-username $adminuser \
     --admin-password $adminpassword \
     --authentication-type 'password' \
-    --computer-name 'devcrypted' \
+    --computer-name 'Win11' \
     --license-type 'Windows_Client' \
     --location $location \
     --nsg-rule 'RDP' \

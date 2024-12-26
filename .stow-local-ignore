@@ -5,6 +5,7 @@
 README.md
 .vscode
 Dockerfile
-init.sh
-create-azure-win11-vm.sh
-InstallWindowsPrograms.ps1
+installer.sh
+ansible
+windows
+azure

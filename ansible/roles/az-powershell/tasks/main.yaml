@@ -1,0 +1,3 @@
+- name: Install Azure PowerShell Module (Can take some time)
+  ansible.builtin.shell:
+    cmd: pwsh -c "if (-Not (Get-Module -ListAvailable -Name 'Az')) {Install-Module -Name 'Az' -Scope AllUsers -AllowClobber}"
