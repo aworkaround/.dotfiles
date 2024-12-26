@@ -3,7 +3,8 @@ rg='Win11-VM-RG'
 name='Win11-VM'
 dnsname='win11-demo-vm01'
 adminuser='Devcrypted'
-adminpassword='^3L!SJS0^qz@UH'
+echo -ne 'Enter Admin password: '
+read adminpassword
 
 az group create --name $rg --location $location > /dev/null
 
