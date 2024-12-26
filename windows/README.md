@@ -4,7 +4,7 @@
 
 ```powershell
 iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WingetApps.ps1' -OutFile "$HOME/Install-WingetApps.ps1"
-& "$HOME\Install-WingetApps.ps1" -AdditionalApps 'Google.Chrome', 'qBittorrent.qBittorrent'
+& "$HOME\Install-WingetApps.ps1" -AdditionalApps 'Google.Chrome', 'qBittorrent.qBittorrent' -InstallCoreApps
 
 ```
 
