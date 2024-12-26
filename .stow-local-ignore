@@ -6,3 +6,4 @@ README.md
 .vscode
 Dockerfile
 init.sh
+create-azure-vm.sh
