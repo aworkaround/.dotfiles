@@ -75,7 +75,7 @@ foreach ($App in $InstallPackages) {
     $DoesNotExist = (winget.exe list --id $App --accept-source-agreements)[-1].Contains('No installed package found')
     if ($DoesNotExist) {
         Write-Progress -Activity "Installing packages: " -Status "$App" -PercentComplete $p
-        winget.exe install --id $App --silent --force --disable-interactivity --accept-source-agreements --accept-package-agreements --exact
+        winget.exe install --id $App --silent --force --accept-source-agreements --accept-package-agreements --exact | Out-Null
     }
     else {
         Write-Host "App $App exists, skipping!"
