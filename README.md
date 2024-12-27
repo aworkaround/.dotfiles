@@ -39,8 +39,8 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 sudo apt update && sudo apt upgrade -y && sudo apt install git -y
 git clone https://github.com/aworkaround/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-chmod +x init.sh
-sudo ./init.sh
+chmod +x installer.sh
+sudo ./installer.sh
 
 ```
 
