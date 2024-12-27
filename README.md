@@ -11,8 +11,9 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 1. Install Apps **[Launch PowerShell as Administrator]**
 
 ```powershell
-iwr 'xiii.in/pswinget' -OutFile "$HOME/Install-WingetApps.ps1"
-& "$HOME\Install-WingetApps.ps1" -AdditionalApps 'Google.Chrome', 'Kubernetes.kind'
+. { iwr -useb 'xiii.in/pswinget' } | iex;
+# iwr 'xiii.in/pswinget' -OutFile "$HOME/Install-WingetApps.ps1"
+# & "$HOME\Install-WingetApps.ps1" -AdditionalApps 'Google.Chrome', 'Kubernetes.kind'
 
 ```
 
