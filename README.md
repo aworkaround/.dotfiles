@@ -4,18 +4,25 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 
 > ❗Caution: Not recommended to be used on existing configured devices. This is tested in Windows 10, 11, Ubuntu 20.04 and higher versions 🙌
 
+<!-- markdownlint-disable MD025 -->
 # GETTING STARTED
+
+## PREREQUISITES TO BE INSTALLED / GOOD TO HAVE
+
+1. Install Windows updates
+2. Install optional updates
+3. 
 
 ## INSTALL AND CONFIGURE WINDOWS 10 OR 11
 
-1. Install Apps **[Launch PowerShell as Administrator]**
+### Install Apps **[Launch PowerShell as Administrator]**
 
 ```powershell
 . { iwr -useb 'xiii.in/pswinget' } | iex;
 
 ```
 
-2. Install WSL **[Launch PowerShell as Administrator]**
+### Install WSL **[Launch PowerShell as Administrator]**
 
 ```powershell
 . { iwr -useb 'xiii.in/pswsl' } | iex;

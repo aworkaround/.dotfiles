@@ -15,11 +15,12 @@ if ($DoesNotExist) {
 function Install-WindowsFeature ($Feature) {
     if ((Get-WindowsOptionalFeature -Online -FeatureName $Feature).State -NE 'Enabled') { 
         Write-Information "Installing $Feature feature..."
-        powershell.exe -c "Enable-WindowsOptionalFeature -FeatureName $Feature -Online -All -NoRestart"
+        Enable-WindowsOptionalFeature -FeatureName $Feature -Online -All -NoRestart
         Write-Host "Feature $Feature installed!" -ForegroundColor Green
-        return $True
     }
-    return $False
+    else {
+        Write-Host "Feature $Feature is already installed!" -ForegroundColor Blue
+    }
 }
 
 $Features = @(
