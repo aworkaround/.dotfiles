@@ -5,13 +5,13 @@ param (
     [string[]]
     $AdditionalApps = @(),
     [Parameter()]
-    [Alias('InstallBaseApps')]
     [switch]
-    $InstallCoreApps
+    $InstallOnlyAdditionalApps
 )
 
 if (![bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")) {
     Write-Error 'Please run the script as Admin!'
+    break
 }
 
 $DeveloperTools = @(
@@ -79,7 +79,7 @@ function Install-WingetApp {
     }
 }
 
-if ($InstallCoreApps) {
+if (!$InstallOnlyAdditionalApps) {
     $Apps = $DeveloperTools + $CoreApps + $VirtualizationApps + $ContainerizationApps + $IaCTools + $AdditionalApps
 }
 else {

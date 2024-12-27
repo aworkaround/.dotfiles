@@ -9,27 +9,23 @@ param (
 $DoesNotExist = (winget.exe list --id $LinuxDistroWingetId --accept-source-agreements)[-1].Contains('No installed package found')
 if ($DoesNotExist) {
     Write-Host "Installing $LinuxDistroWingetId..." -ForegroundColor Yellow
-    winget install --id $LinuxDistroWingetId --silent --accept-source-agreements --accept-package-agreements
+    pwsh.exe -c "winget install --id $LinuxDistroWingetId --silent --accept-source-agreements --accept-package-agreements"
 }
 
-$RestartRequired = $false
-if ((Get-WindowsOptionalFeature -Online -FeatureName 'VirtualMachinePlatform').State -NE 'Enabled') { 
-    Write-Information 'Installing VirtualMachinePlatform feature...'
-    Enable-WindowsOptionalFeature -FeatureName 'VirtualMachinePlatform' -Online -All -NoRestart
-    $RestartRequired = $True
-}
-if ((Get-WindowsOptionalFeature -Online -FeatureName 'HypervisorPlatform').State -NE 'Enabled') { 
-    Write-Information 'Installing HypervisorPlatform feature...'
-    Enable-WindowsOptionalFeature -FeatureName 'HypervisorPlatform' -Online -All -NoRestart
-    $RestartRequired = $True
-}
-if ((Get-WindowsOptionalFeature -Online -FeatureName 'Microsoft-Windows-Subsystem-Linux').State -NE 'Enabled') { 
-    Write-Information 'Installing Microsoft-Windows-Subsystem-Linux feature...'
-    Enable-WindowsOptionalFeature -FeatureName 'Microsoft-Windows-Subsystem-Linux' -Online -All -NoRestart
-    $RestartRequired = $True
+function Install-WindowsFeature ($Feature) {
+    if ((Get-WindowsOptionalFeature -Online -FeatureName $Feature).State -NE 'Enabled') { 
+        Write-Information "Installing $Feature feature..."
+        powershell.exe -c "Enable-WindowsOptionalFeature -FeatureName $Feature -Online -All -NoRestart"
+        Write-Host "Feature $Feature installed!" -ForegroundColor Green
+        return $True
+    }
+    return $False
 }
 
-if ($RestartRequired) {
-    Write-Warning 'If you choose to restart the computer, remember to RERUN the script once the system comes back online!'
-    Restart-Computer -Confirm
-}
+$Features = @(
+    'HypervisorPlatform',
+    'Microsoft-Windows-Subsystem-Linux',
+    'VirtualMachinePlatform'
+)
+
+$Features | ForEach-Object { Install-WindowsFeature -Feature $_ }

@@ -1,14 +1,16 @@
-# Getting Started
+# GETTING STARTED
 
-1. Install Core Apps [Launch PowerShell **CORE** as Administrator]
+## INSTALL AND CONFIGURE WINDOWS 10 OR 11
+
+1. Install Apps **[Launch PowerShell as Administrator]**
 
 ```powershell
 iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WingetApps.ps1' -OutFile "$HOME/Install-WingetApps.ps1"
-& "$HOME\Install-WingetApps.ps1" -AdditionalApps 'Google.Chrome', 'qBittorrent.qBittorrent' -InstallCoreApps
+& "$HOME\Install-WingetApps.ps1" -InstallCoreApps -AdditionalApps 'Google.Chrome', 'Kubernetes.kind'
 
 ```
 
-1. Install WSL [Launch **Windows PowerShell** as Administrator]
+2. Install WSL **[Launch PowerShell as Administrator]**
 
 ```powershell
 iwr 'https://github.com/aworkaround/dotfiles/raw/refs/heads/main/windows/Install-WSL.ps1' -OutFile "$HOME/Install-WSL.ps1"

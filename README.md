@@ -2,21 +2,29 @@
 
 This is dotfiles repo which contains custom configs related to my **UBUNTU WSL** installed on my Windows Desktop. This can be reused using GNU Stow tool to quickly create dotfiles.
 
-# Getting Started
+> ❗Caution: Not recommended to be used on existing configured devices. This is tested in Windows 10, 11, Ubuntu 20.04 and higher versions 🙌
 
-## Install and configure Windows 10 or 11 Apps
+# GETTING STARTED
 
-> ℹ️ You can find more packages at [winget.run](https://winget.run) and can copy the command to install them 🙌
+## INSTALL AND CONFIGURE WINDOWS 10 OR 11
+
+1. Install Apps **[Launch PowerShell as Administrator]**
 
 ```powershell
-Invoke-WebRequest -Uri 'https://kamal.today/win-packages' -OutFile "$HOME/InstallWindowsPrograms.ps1"
-Powershell.exe -ExecutionPolicy Bypass -File "$HOME/InstallWindowsPrograms.ps1"
+iwr 'xiii.in/pswinget' -OutFile "$HOME/Install-WingetApps.ps1"
+& "$HOME\Install-WingetApps.ps1" -AdditionalApps 'Google.Chrome', 'Kubernetes.kind'
 
 ```
 
-## Install and configure Ubuntu WSL
+2. Install WSL **[Launch PowerShell as Administrator]**
 
-> ❗Caution: Not recommended to be used on existing configured devices. This is tested in Ubuntu 20.04 and higher versions 🙌
+```powershell
+iwr '' -OutFile "$HOME/Install-WSL.ps1"
+& "$HOME\Install-WSL.ps1"
+
+```
+
+## INSTALL AND CONFIGURE UBUNTU WSL
 
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo apt install git -y
@@ -27,9 +35,9 @@ sudo ./init.sh
 
 ```
 
-# 🌍 Good to Know Things!
+# 🌍 GOOD TO KNOW THINGS
 
-## 🔁 How to Backup (Add to GIT and Stow)
+## 🔁 HOW TO BACKUP DOTFILES
 
 1. Copy Any dotfile from user home (~) to dotfiles folder. E.g. `cp ~/.zshrc ~/dotfiles/.zshrc`
 2. Stow add `stow . --dotfiles --adopt`
@@ -38,19 +46,19 @@ sudo ./init.sh
 5. Git Commit `git commit -m 'Added .zshrc dotfile'`
 6. Git Push `git push origin main`
 
-## ⬇️ How to Restore
+## ⬇️ HOW TO RESTORE DOTFILES
 
 1. Git Clone `git clone git@github.com:aworkaround/dotfiles.git -b main ~/dotfiles`
 2. CD to Dotfiles `cd ~/dotfiles`
 3. CAUTION: This command will replace your existing dotfiles in $HOME. Stow add `stow . --dotfiles --adopt`. Use it without `--adopt` if you're not sure.
 
-## ℹ️ Considerations
+## ℹ️ CONSIDERATIONS
 
 - If you want to ignore any dotfile to be commited in Git, add it to `.gitignore` file.
 - If you want to ignore any dotfile to become symlink by Stow, add it to `.stow-local-ignore` file.
 - Don't store any secrets, keys, tokens, and SSH RSA keys to this repo for security.
 
-## 🧪 Testing
+## 🧪 TESTING CHANGES IN THIS REPO
 
 - You can create your own Docker image using command `docker build -t ubuntu-custom ~/dotfiles`
 - Then you can run container `docker run -d --name ubuntu1 ubuntu-custom`
