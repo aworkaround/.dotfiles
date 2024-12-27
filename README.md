@@ -12,16 +12,13 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 
 ```powershell
 . { iwr -useb 'xiii.in/pswinget' } | iex;
-# iwr 'xiii.in/pswinget' -OutFile "$HOME/Install-WingetApps.ps1"
-# & "$HOME\Install-WingetApps.ps1" -AdditionalApps 'Google.Chrome', 'Kubernetes.kind'
 
 ```
 
 2. Install WSL **[Launch PowerShell as Administrator]**
 
 ```powershell
-iwr '' -OutFile "$HOME/Install-WSL.ps1"
-& "$HOME\Install-WSL.ps1"
+. { iwr -useb 'xiii.in/pswsl' } | iex;
 
 ```
 
