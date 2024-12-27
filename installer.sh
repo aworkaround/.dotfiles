@@ -9,19 +9,19 @@ read FULLNAME
 echo -e "\033[0;33mNo more inputs required.\033[0m"
 echo -e "\033[0;33mThis script can take some time to run, please be patient.\033[0m"
 
-apt-get update && apt-get upgrade -y
-apt-get install -y ansible git
+sudo apt-get update && apt-get upgrade -y
+sudo apt-get install -y ansible git
 
 ansible-galaxy role install gantsign.oh-my-zsh --roles-path ./ansible/roles/
 
-ansible-playbook ./ansible/playbook.yaml
+sudo ansible-playbook ./ansible/playbook.yaml
 
-mv ../.zshrc ../.zshrc.bak -f 2> /dev/null
-mv ../.bashrc ../.bashrc.bak -f 2> /dev/null
-mv ../.tmux.conf ../.tmux.conf.bak -f 2> /dev/null
+mv ~/.zshrc ~/.zshrc.bak -f 2> /dev/null
+mv ~/.bashrc ~/.bashrc.bak -f 2> /dev/null
+mv ~/.tmux.conf ~/.tmux.conf.bak -f 2> /dev/null
 stow . --dotfiles --adopt
 
-cat > ../.gitconfig << EOF
+cat > ~/.gitconfig << EOF
 [user]
 	email = $EMAIL
 	name = $FULLNAME
@@ -32,7 +32,7 @@ cat > ../.gitconfig << EOF
 EOF
 
 ## Cleaning clutter
-rm ../.config/nvim/.git -rf
+rm ~/.config/nvim/.git -rf
 
 echo "Please consider giving me a star at https://github.com/aworkaround/dotfiles.git !!"
 echo "You can create your own dotfiles repo and push ~/dotfiles directory there for further customizations!"
