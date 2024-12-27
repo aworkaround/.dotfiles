@@ -11,18 +11,19 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 
 1. Install Windows updates
 2. Install optional updates
-3. 
+3. Install `Winget-AutoUpdate-aaS` package from Microsoft Store
+4. Install `PowerShell` package from Microsoft Store.
 
 ## INSTALL AND CONFIGURE WINDOWS 10 OR 11
 
-### Install Apps **[Launch PowerShell as Administrator]**
+### Install Apps **[Launch PowerShell Core as Administrator]**
 
 ```powershell
 . { iwr -useb 'xiii.in/pswinget' } | iex;
 
 ```
 
-### Install WSL **[Launch PowerShell as Administrator]**
+### Install WSL **[Launch Windows PowerShell as Administrator]**
 
 ```powershell
 . { iwr -useb 'xiii.in/pswsl' } | iex;
@@ -30,6 +31,9 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 ```
 
 ## INSTALL AND CONFIGURE UBUNTU WSL
+
+1. Go to [my dotfiles](https://github.com/aworkaround/dotfiles.git) repo and fork it.
+2. Change my repo with yours. And run below commands:
 
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo apt install git -y

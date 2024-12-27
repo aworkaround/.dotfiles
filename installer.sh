@@ -16,12 +16,12 @@ ansible-galaxy role install gantsign.oh-my-zsh --roles-path ./ansible/roles/
 
 ansible-playbook ./ansible/playbook.yaml
 
-mv ~/.zshrc ~/.zshrc.bak -f 2> /dev/null
-mv ~/.bashrc ~/.bashrc.bak -f 2> /dev/null
-mv ~/.tmux.conf ~/.tmux.conf.bak -f 2> /dev/null
+mv ../.zshrc ../.zshrc.bak -f 2> /dev/null
+mv ../.bashrc ../.bashrc.bak -f 2> /dev/null
+mv ../.tmux.conf ../.tmux.conf.bak -f 2> /dev/null
 stow . --dotfiles --adopt
 
-cat > ~/.gitconfig << EOF
+cat > ../.gitconfig << EOF
 [user]
 	email = $EMAIL
 	name = $FULLNAME
@@ -32,8 +32,7 @@ cat > ~/.gitconfig << EOF
 EOF
 
 ## Cleaning clutter
-rm ~/.config/nvim/.git -rf
-rm .git -rf
+rm ../.config/nvim/.git -rf
 
 echo "Please consider giving me a star at https://github.com/aworkaround/dotfiles.git !!"
 echo "You can create your own dotfiles repo and push ~/dotfiles directory there for further customizations!"
