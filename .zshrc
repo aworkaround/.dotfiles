@@ -14,8 +14,8 @@ source $ZSH/oh-my-zsh.sh
 alias tf=terraform
 alias k=kubectl
 alias p=poetry
-alias vim=hx
-alias v=hx
+alias vim=nvim
+alias v=nvim
 alias g=git
 alias h=helm
 
