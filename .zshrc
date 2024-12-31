@@ -35,4 +35,8 @@ alias ks='kubectl get pods -o wide'
 alias kla='kubectl get pods -o wide -A'
 alias kal='kubectl get pods -o wide -A'
 
+## Ctrl+Backspace Fix
+bindkey '^H' backward-kill-word
+bindkey '^?' backward-delete-char
+
 clear
