@@ -24,8 +24,8 @@ eval "$(rtx activate bash)"
 alias tf=terraform
 alias k=kubectl
 alias p=poetry
-alias vim=hx
-alias v=hx
+alias vim=nvim
+alias v=nvim
 alias g=git
 alias h=helm
 
@@ -43,5 +43,9 @@ export DRC="--dry-run=client --output=yaml"
 export DRS="--dry-run=server --output=yaml"
 alias kgp='kubectl get pods -o wide'
 alias kgn='kubectl get nodes -o wide'
+
+## Ctrl+Backspace Fix
+bindkey '^H' backward-kill-word
+bindkey '^?' backward-delete-char
 
 clear

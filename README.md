@@ -1,6 +1,6 @@
 # INTRODUCTION
 
-This is dotfiles repo which contains custom configs related to my **UBUNTU WSL** installed on my Windows Desktop. This can be reused using GNU Stow tool to quickly create dotfiles.
+This is dotfiles repo which contains custom configs related to **Windows 11** + **UBUNTU WSL** installed on my Desktop. This can be reused using GNU Stow tool to quickly create dotfiles.
 
 > ❗Caution: Not recommended to be used on existing configured devices. This is tested in Windows 10, 11, Ubuntu 20.04 and higher versions 🙌
 
@@ -11,7 +11,7 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 
 1. Install Windows updates
 2. Install optional updates
-3. Install `Winget-AutoUpdate-aaS` package from Microsoft Store
+3. Install `Winget-AutoUpdate-aaS` package from Microsoft Store.
 4. Install `PowerShell` package from Microsoft Store.
 
 ## INSTALL AND CONFIGURE WINDOWS 10 OR 11
@@ -19,25 +19,25 @@ This is dotfiles repo which contains custom configs related to my **UBUNTU WSL**
 ### Install Apps **[Launch PowerShell Core as Administrator]**
 
 ```powershell
-. { iwr -useb 'xiii.in/pswinget' } | iex;
+. { iwr -useb 'decr.in/pswinget' } | iex;
 
 ```
 
 ### Install WSL **[Launch Windows PowerShell as Administrator]**
 
 ```powershell
-. { iwr -useb 'xiii.in/pswsl' } | iex;
+. { iwr -useb 'decr.in/pswsl' } | iex;
 
 ```
 
 ## INSTALL AND CONFIGURE UBUNTU WSL
 
-1. Go to [my dotfiles](https://github.com/aworkaround/dotfiles.git) repo and fork it.
+1. Go to [my dotfiles](https://github.com/devcrypted/dotfiles.git) repo and fork it.
 2. Change my repo with yours. And run below commands:
 
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo apt install git -y
-git clone https://github.com/aworkaround/dotfiles.git ~/dotfiles
+git clone https://github.com/devcrypted/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 chmod +x installer.sh
 sudo ./installer.sh
@@ -57,7 +57,7 @@ sudo ./installer.sh
 
 ## ⬇️ HOW TO RESTORE DOTFILES
 
-1. Git Clone `git clone git@github.com:aworkaround/dotfiles.git -b main ~/dotfiles`
+1. Git Clone `git clone git@github.com:devcrypted/dotfiles.git -b main ~/dotfiles`
 2. CD to Dotfiles `cd ~/dotfiles`
 3. CAUTION: This command will replace your existing dotfiles in $HOME. Stow add `stow . --dotfiles --adopt`. Use it without `--adopt` if you're not sure.
 
@@ -75,5 +75,5 @@ sudo ./installer.sh
 - Set password for user **ubuntu** using `passwd ubuntu`
 - Exit `exit`
 - Login using ubuntu user `docker exec -u ubuntu -it abcd /bin/bash`
-- Clone dotfiles `git clone https://github.com/aworkaround/dotfiles.git ~/dotfiles`
+- Clone dotfiles `git clone https://github.com/devcrypted/dotfiles.git ~/dotfiles`
 - Test it by running command `chmod +x init.sh && sudo ./init.sh`
