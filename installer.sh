@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo -ne "Please enter your GitHub Email (To be used in .gitconfig file): "
-read EMAIL
+# echo -ne "Please enter your GitHub Email (To be used in .gitconfig file): "
+# read EMAIL
 
-echo -ne "Please enter your GitHub Full Name (To be used in .gitconfig file): "
-read FULLNAME
+# echo -ne "Please enter your GitHub Full Name (To be used in .gitconfig file): "
+# read FULLNAME
 
 echo -e "\033[0;33mNo more inputs required.\033[0m"
 echo -e "\033[0;33mThis script can take some time to run, please be patient.\033[0m"

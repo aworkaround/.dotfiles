@@ -39,4 +39,9 @@ alias kal='kubectl get pods -o wide -A'
 bindkey '^H' backward-kill-word
 bindkey '^?' backward-delete-char
 
+## Command to mask sensitive information
+mask() {
+    "$@" | sed -E 's/epam/****/g' | sed -E 's/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/7ed3d213-fd10-4b78-bf50-************/g'
+}
+
 clear
